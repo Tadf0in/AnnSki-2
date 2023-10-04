@@ -34,18 +34,17 @@ export default function Events() {
 
   if (listEvents.length === 0) {
     return (<>Loading...</>)
-  } else {
-    return (
-      <>
-      <h1>Sorties</h1>
-      <div className='list-events'>
-        {
-          listEvents.map((event, id) => (
-            <Event event={event} key={id} />
-          ))
-        }
-      </div>
-      </>
-    )
   }
+  return (
+    <>
+    <h1>Sorties</h1>
+    <div className='list-events'>
+      {
+        listEvents.map((event, id) => (
+          <Event event={event} key={id} />
+        ))
+      }
+    </div>
+    </>
+  )
 }

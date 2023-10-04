@@ -10,6 +10,12 @@ export default function Home() {
 
   return (
     <>
+      <div className='absolute home' style={{marginTop: "calc(0.4*(100vh - " + navbarHeight + "px))"}}>
+        <h1>REJOIGNEZ NOUS SUR LES PISTES</h1>
+        <br/>
+        <a href="#events" className='btn btn-primary'>Accèder à la prochaine sortie</a>
+      </div>
+      
       <div className='trailer' style={{height: "calc(100vh - " + navbarHeight + "px)"}}>
         <video playsInline autoPlay muted loop controls={false}>
           <source src={trailer} type='video/mp4'/>
@@ -17,6 +23,7 @@ export default function Home() {
       </div>
 
       <div id="events">
+        <h1>Prochaine sortie</h1>
         <Events />
       </div>
     </>

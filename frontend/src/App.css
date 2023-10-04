@@ -12,15 +12,33 @@ html {
 
 .trailer {
     z-index: -1;
-    background-color: black;
     display: flex;
     justify-content: center;
+    background-color: black;
     /* height: calc(100vh - navbarHeight); defined in js */
 }
 video {
     min-width: 100vw;
     object-fit: cover;
     opacity: 70%;
+}
+
+.home {
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* margin-top: calc(0.5*(100vh - navbarHeight)) */
+    
+    text-align: center;
+    color: white;
+}
+.home h1 {
+    font-weight: bold;
+}
+.home a {
+    padding: 10px 20px;
+    border-radius: 50px;
 }
 
 .list-events {
