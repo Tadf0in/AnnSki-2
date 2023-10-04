@@ -1,0 +1,22 @@
+html {
+    overflow-x: hidden;
+}
+
+.navbar-brand {
+    margin-left: 20px;
+    padding-right: 20px;
+}
+
+.trailer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    background-color: black;
+}
+video {
+    opacity: 50%;
+    min-width: 100vw;
+    height: 100%;
+}
