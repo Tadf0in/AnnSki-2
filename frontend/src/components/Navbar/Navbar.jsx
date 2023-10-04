@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png'
 export default function Navbar() {
   return (
     <nav className='navbar navbar-expand-md bg-body-tertiary' id='navbar'>
-        <div className="container-fluid">
+        <div className="container-fluid barre">
             <Link to="/" className="navbar-brand">
                 <img src={logo} className='d-inline-block' alt="Logo" width="50" height="50"/>
                 &nbsp; Ann'ski
