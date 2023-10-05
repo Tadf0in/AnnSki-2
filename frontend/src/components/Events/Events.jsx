@@ -40,7 +40,7 @@ export default function Events() {
   return (
     <>
     <h1>Sorties</h1>
-    <div className='list-events'>
+    <div className='list-events d-flex flex-column align-items-center'>
       {
         listEvents.map((event, id) => (
           <Event event={event} key={id} />
