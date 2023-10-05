@@ -12,3 +12,9 @@ class Event(models.Model):
     prixNA = models.PositiveSmallIntegerField(default=35)
     nb_max = models.PositiveSmallIntegerField(default=60)
     inscrits = models.ManyToManyField(user_model, related_name='inscrits', blank=True)
+
+    def register_user(self, user) -> None:
+        self.inscrits.add(user)
+
+    def unregister_user(self, user) -> None:
+        self.inscrits.remove(user)
