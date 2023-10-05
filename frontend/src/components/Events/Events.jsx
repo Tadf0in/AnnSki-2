@@ -14,7 +14,8 @@ export default function Events() {
         'date': '07/10/2023',
         'prixA': '26',
         'prixNA': '35',
-        'inscrits': []
+        'inscrits': [],
+        'nb_max': 60,
       },
       {
         'id': 2,
@@ -24,7 +25,8 @@ export default function Events() {
         'date': '08/11/2023',
         'prixA': '26',
         'prixNA': '35',
-        'inscrits': []
+        'inscrits': [],
+        'nb_max': 60,
       }
     ]
     return (

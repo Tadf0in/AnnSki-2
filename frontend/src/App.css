@@ -51,7 +51,42 @@ video {
     max-width: 800px;
     /* width: 50%; */
 }
-.event img {
+.event .card-img-top {
     height: 200px;
     object-fit: cover;
-} 
+}
+.event .card-header {
+    position: absolute;
+
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    width: 100%;
+    height: 200px;
+
+    background: linear-gradient(transparent, #222);
+    color: white;
+}
+.event .event-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100px;
+}
+/* 
+.event .event-title {
+    font-weight: bold;
+    font-size: 45px;
+}
+.event .event-date {
+    font-size: 25px;
+} */
+.event .logo {
+    max-width: 100px;
+    max-height: 100px;
+}
+.event .event-footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
