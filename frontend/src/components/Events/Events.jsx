@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { client } from '../../main'
+import useFetch from '../../hooks/useFetch'
 import Event from './Event'
 
 export default function Events() {
   const [listEvents, setListEvents] = useState([])
 
-  useEffect(() => {
-    const getEventsApi = async () => {
-        await client.get('/api/events/')
-        .then((res) => {
-            setListEvents(res.data)
-        }) 
-        .catch(err => console.log(err))
-    }
-    getEventsApi()
-  }, [])
+  useFetch('GET', '/api/events/', setListEvents)
 
   if (listEvents.length === 0) {
     return (<>Loading...</>)
