@@ -3,10 +3,10 @@ import useFetch from '../../hooks/useFetch'
 import Event from './Event'
 
 export default function Events() {
-  const {loading, data} = useFetch('/api/events/', {method: 'GET'})
+  const {loading, data} = useFetch('/api/events', {method: 'GET'})
  
   return <>
-    {loading && <span className='fst-italic text-body-secondary'>Loading...</span>}
+    {loading && 'Loading...'}
 
     {data && <div className='events'>
       <h1>Sorties</h1>

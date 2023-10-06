@@ -10,10 +10,18 @@ class EventsView(APIView):
     authentication_classes = ()
 
     def get(self, request):
-        events = Event.objects.all()
+        events = Event.objects.order_by('-date')
         serializer = EventSerialier(events, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+class NextEventView(APIView):
+    permission_classes = (AllowAny,)
+    authentication_classes = ()
+
+    def get(self, request):
+        events = Event.objects.order_by('-date')[0]
+        serializer = EventSerialier(events)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class RegisterView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
