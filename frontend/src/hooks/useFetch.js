@@ -1,17 +1,26 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
-export default function useFetch (method, url, setter) {
+export default function useFetch (url, options) {
+    const [loading, setLoading] = useState(true)
+    const [data, setData] = useState(null)
+    const [errors, setErrors] = useState(null)
+
     useEffect(() => {
-        const fetchAPI = async () => {
-            await fetch('http://localhost:8000/' + url, {
-                method: method
-            })
-            .then(res => res.json())
-            .then(data => {
-                setter(data)    
-            })
-            .catch(err => console.log(err))
-        }
-        fetchAPI()
+        fetch('http://localhost:8000/' + url, {
+            ...options,
+            headers: {
+                ...options.headers,
+                'Accept': 'application/json; charset=UTF-8'
+            }
+
+        }).then(res => res.json()).then(data => {
+            setData(data)
+        })
+        .catch(err => setErrors(err))
+        .finally(() => setLoading(false))
     }, [])
+
+    return {
+        loading, data, errors
+    }
 }
