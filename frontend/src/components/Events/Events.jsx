@@ -1,37 +1,19 @@
 import React, { useEffect, useState } from 'react'
+import { client } from '../../main'
 import Event from './Event'
 
 export default function Events() {
   const [listEvents, setListEvents] = useState([])
 
   useEffect(() => {
-    let temp = [
-      {
-        'id': 1,
-        'title': 'Sortie test',
-        'location': 'Station de ski test',
-        'desc': 'Lorem ipsum dolor sin at met blablabla mes couilles sur un tapis bibidibobidibou',
-        'date': '07/10/2023',
-        'prixA': '26',
-        'prixNA': '35',
-        'inscrits': [],
-        'nb_max': 60,
-      },
-      {
-        'id': 2,
-        'title': 'Sortie test 2',
-        'location': 'Station de ski test 2',
-        'desc': 'Lorem ipsum dolor sin at met blablabla mes couilles sur un tapis bibidibobidibou',
-        'date': '08/11/2023',
-        'prixA': '26',
-        'prixNA': '35',
-        'inscrits': [],
-        'nb_max': 60,
-      }
-    ]
-    return (
-      setListEvents(temp)
-    )
+    const getEventsApi = async () => {
+        await client.get('/api/events/')
+        .then((res) => {
+            setListEvents(res.data)
+        }) 
+        .catch(err => console.log(err))
+    }
+    getEventsApi()
   }, [])
 
   if (listEvents.length === 0) {

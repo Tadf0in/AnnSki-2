@@ -17,7 +17,7 @@ export default function Home() {
       </div>
       
       <div className='trailer z-n1 d-flex justify-content-center' style={{height: "calc(100vh - " + navbarHeight + "px)"}}>
-        <video className='object-fit-cover' playsInline autoPlay muted loop controls={false}>
+        <video className='object-fit-cover' playsInline autoPlay={false} muted loop controls={false}>
           <source src={trailer} type='video/mp4'/>
         </video>
       </div>

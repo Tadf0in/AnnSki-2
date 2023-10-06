@@ -1,27 +1,41 @@
 import React from 'react'
 
 export default function Event({ event }) {
+  const formatDate = (date) => {
+    let format = new Date(date)
+    return ("0" + format.getDate()).slice(-2) + '/' + ("0" + (format.getMonth() + 1)).slice(-2)
+
+  }
+
   return (
     <div className="event card">
       <img className="card-img-top object-fit-cover" alt="station" height="200px"
-        src="https://images.france.fr/zeaejvyq9bhj/26QptgfWZ0FinE9mOWGmB1/9b72782e89d1d2284421497ef7feaec3/TIGNES___B__atrice_Pr__ve_-_AdobeStock.jpg"
+        src={event.background_img}
       />
       
       <div className='card-header d-flex justify-content-between align-items-end'>
         <div className='event-left d-flex flex-column justify-content-end'>
-          <h5 className="card-title fw-bold fs-1">{event.title}</h5>
-          <h5 className='card-title fs-3'>{event.date}</h5>
+          <h5 className="card-title fw-bold fs-1">{event.location}</h5>
+          <h5 className='card-title fs-3'>{formatDate(event.date)}</h5>
         </div>
 
         <div className='event-right'>
           <img className='logo' alt='logo'
-            src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/ce/Logo_Tignes.svg/2048px-Logo_Tignes.svg.png"
+            src={event.logo_img}
           />
         </div>
       </div>
 
       <div className="card-body">
         <p className="card-text">{event.desc}</p>
+
+        <div>
+          <span className='fw-bold fs-3'>{event.prixA}€</span> 
+          <br/>
+          <span className='fw-light fst-italic text-body-secondary'>({event.prixNA}€ pour les non adhérents)</span>
+        </div>
+
+        <br />
 
         <span className='event-footer d-flex align-items-center'>
           <a href="#" className="btn btn-primary">S'inscrire</a>

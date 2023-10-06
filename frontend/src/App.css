@@ -3,7 +3,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
 .navbar-brand {
     margin-left: 20px;
     padding-right: 20px;
@@ -56,8 +55,9 @@ video {
     height: 100px;
 }
 .event .logo {
-    max-width: 100px;
-    max-height: 100px;
+    object-fit: contain;
+    width: 100px;
+    height: 100px;
 }
 .event .event-footer {
     gap: 20px;
