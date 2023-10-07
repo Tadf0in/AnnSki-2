@@ -1,5 +1,7 @@
 import './App.css'
-import { createBrowserRouter, Outlet, RouterProvider} from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider, useRouteError} from 'react-router-dom'
+import PageError from './Errors/PageError'
+
 import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home/Home'
 import Events from './components/Events/Events'
@@ -11,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    errorElement: <><Navbar /><PageError /></>,
     children: [  
       { 
         path: '/',

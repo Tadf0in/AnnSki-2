@@ -9,8 +9,16 @@ import AForm from './AForm'
 
 export default function Register () {
     const {event_id} = useParams()
-    const {loading, data} = useFetch('/api/events/'+event_id, {method: 'GET'})
+    const {loading, data, errors} = useFetch('/api/events/'+event_id, {method: 'GET'})
     const [adherent, setAdherent] = useState(null)
+
+    if (errors) {
+        console.log(errors)
+        throw new Error("Cette sortie ne semble pas exister")
+    } else 
+    if (data && !data.can_register) {
+        throw new Error("Impossible de s'inscrire à cette sortie")
+    }
 
     return <>
         {loading && <Loading />}
