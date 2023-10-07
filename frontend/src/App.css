@@ -1,42 +1,75 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.navbar-brand {
+    margin-left: 20px;
+    padding-right: 20px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.nav-item {
+    margin-left: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+video {
+    min-width: 100vw;
+}
+.home {
+    z-index: 1;
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.2)
+}
+.home a {
+    padding: 10px 20px;
+    border-radius: 50px;
+    max-width: 400px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.section-title {
+    margin: 20px;
+    max-width: 800px;
+    width: calc(100% - 40px);
 }
-
-.card {
-  padding: 2em;
+.next-event {
+    width: 100%;
 }
+.list-events {
+    width: 100%;
+    gap: 20px;
+}
+.event {
+    max-width: 800px;
+    width: calc(100% - 40px);
+}
+.event .card-header {
+    position: absolute;
 
-.read-the-docs {
-  color: #888;
+    width: 100%;
+    height: 200px;
+
+    background: linear-gradient(transparent, #222);
+    color: white;
+}
+.event .event-left {
+    height: 100px;
+}
+.event .logo {
+    object-fit: contain;
+    width: 100px;
+    height: 100px;
+}
+.event .event-footer {
+    gap: 20px;
 }
