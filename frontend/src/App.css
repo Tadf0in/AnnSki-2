@@ -37,10 +37,21 @@ video {
     max-width: 400px;
 }
 
-
-.event {
+.section-title {
     margin: 20px;
     max-width: 800px;
+    width: calc(100% - 40px);
+}
+.next-event {
+    width: 100%;
+}
+.list-events {
+    width: 100%;
+    gap: 20px;
+}
+.event {
+    max-width: 800px;
+    width: calc(100% - 40px);
 }
 .event .card-header {
     position: absolute;

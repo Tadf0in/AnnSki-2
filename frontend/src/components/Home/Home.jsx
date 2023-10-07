@@ -13,25 +13,25 @@ export default function Home() {
 
   return (
     <>
-      <div className='absolute home' style={{height: "calc(100vh - " + navbarHeight + "px)", paddingTop: navbarHeight}}>
+      <div className='absolute home' style={{height: "calc(100vh - " + navbarHeight + "px)"}}>
         <h1 className='fs-1 fw-bold'>REJOIGNEZ NOUS SUR LES PISTES</h1>
         <br/>
         <a href="#next" className='btn btn-primary'>Accèder à la prochaine sortie</a>
       </div>
       
       <div className='trailer z-n1 d-flex justify-content-center' style={{height: "calc(100vh - " + navbarHeight + "px)"}}>
-        <video className='object-fit-cover' playsInline autoPlay={false} muted loop controls={false}>
+        <video className='object-fit-cover' playsInline autoPlay muted loop controls={false}>
           <source src={trailer} type='video/mp4'/>
         </video>
       </div>
 
-      <div id="next">
-        <h1>Prochaine sortie</h1>
+      <section id="next" className='d-flex flex-column align-items-center'>
+        <h1 className='section-title fs-1'>Prochaine sortie</h1>
           {loading && <>Loading</>}
-          {data && <div className='d-flex justify-content-center'> 
+          {data && <div className='next-event d-flex justify-content-center'> 
             <Event event={data}/>
           </div>}
-      </div>
+      </section>
     </>
   )
 }

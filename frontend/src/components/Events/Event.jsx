@@ -38,7 +38,10 @@ export default function Event({ event }) {
         <br />
 
         <span className='event-footer d-flex align-items-center'>
-          <a href="#" className="btn btn-primary">S'inscrire</a>
+          { event.can_register 
+          ? <button className="btn btn-primary">S'inscrire</button> 
+          : <button disabled className='btn btn-secondary'><i class="fa-solid fa-lock"></i>&nbsp;&nbsp;S'inscrire</button>
+          }
           <p className='card-text text-body-secondary'>Reste {event.nb_max - event.inscrits.length}/{event.nb_max} places</p>
         </span>
       </div>

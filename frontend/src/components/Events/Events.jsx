@@ -8,8 +8,8 @@ export default function Events() {
   return <>
     {loading && 'Loading...'}
 
-    {data && <div className='events'>
-      <h1>Sorties</h1>
+    {data && <div className='events d-flex flex-column align-items-center'>
+      <h1 className='section-title fs-1'>Sorties</h1>
       <div className='list-events d-flex flex-column align-items-center'>
         {
           data.map((event, id) => (
