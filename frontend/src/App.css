@@ -3,6 +3,17 @@ html {
     scroll-behavior: smooth;
 }
 
+#error-page {
+    height: 90vh;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+}
+#error-page img {
+    width: 100%;
+    max-width: 600px;
+}
+
 .navbar-brand {
     margin-left: 20px;
     padding-right: 20px;
