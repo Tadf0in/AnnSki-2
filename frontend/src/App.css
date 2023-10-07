@@ -62,14 +62,37 @@ video {
     background: linear-gradient(transparent, #222);
     color: white;
 }
-.event .event-left {
+.event-left {
     height: 100px;
 }
-.event .logo {
+.event-right .logo {
     object-fit: contain;
     width: 100px;
     height: 100px;
 }
-.event .event-footer {
+.event-footer {
     gap: 20px;
+}
+
+.btns-adherent {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+.register-header {
+    position: absolute;
+    background: linear-gradient(transparent, #222);
+    color: white;
+    width: 100%;
+    height: 200px;
+}
+.register-header-infos {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+.register-form {
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
 }

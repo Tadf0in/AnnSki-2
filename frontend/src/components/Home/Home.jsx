@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import useFetch from '../../hooks/useFetch'
 import trailer from '../../assets/trailer.mp4'
 import Event from '../Events/Event'
+import Loading from '../Utils/Loading'
 
 export default function Home() {
   const [navbarHeight, setNavbarHeight] = useState(76)
   useEffect(() => {
     setNavbarHeight(document.getElementById('navbar').clientHeight)
   }, [])
-  const {loading, data} = useFetch('/api/events/next', {method: 'GET'})
+  const {loading, data} = useFetch('/api/events/0', {method: 'GET'})
 
 
   return (
@@ -27,7 +28,7 @@ export default function Home() {
 
       <section id="next" className='d-flex flex-column align-items-center'>
         <h1 className='section-title fs-1'>Prochaine sortie</h1>
-          {loading && <>Loading</>}
+          {loading && <Loading />}
           {data && <div className='next-event d-flex justify-content-center'> 
             <Event event={data}/>
           </div>}

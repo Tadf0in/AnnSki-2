@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Event({ event }) {
   const formatDate = (date) => {
@@ -39,8 +40,8 @@ export default function Event({ event }) {
 
         <span className='event-footer d-flex align-items-center'>
           { event.can_register 
-          ? <button className="btn btn-primary">S'inscrire</button> 
-          : <button disabled className='btn btn-secondary'><i class="fa-solid fa-lock"></i>&nbsp;&nbsp;S'inscrire</button>
+          ? <Link to={"/events/register/" + event.id} className="btn btn-primary">S'inscrire</Link> 
+          : <button disabled className='btn btn-secondary'><i className="fa-solid fa-lock"></i>&nbsp;&nbsp;S'inscrire</button>
           }
           <p className='card-text text-body-secondary'>Reste {event.nb_max - event.inscrits.length}/{event.nb_max} places</p>
         </span>

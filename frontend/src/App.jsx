@@ -5,6 +5,7 @@ import Home from './components/Home/Home'
 import Events from './components/Events/Events'
 import Shop from './components/Shop/Shop'
 import Profile from './components/Profile/Profile'
+import Register from './components/Events/Register/Register'
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} /> 
-        <Route path='/events' element={<Events />} />      
+        <Route path='/events' element={<Events />} />
+        <Route path='/events/register/:event_id' element={<Register />} />    
         <Route path='/shop' element={<Shop />} />  
         <Route path='/profile' element={<Profile />} />      
       </Routes>
