@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import useFetch from '../../hooks/useFetch'
 import trailer from '../../assets/trailer.mp4'
 import Event from '../Events/Event'
-import Loading from '../Utils/Loading'
+import Loading from '../../utils/Loading'
 
 export default function Home() {
   const [navbarHeight, setNavbarHeight] = useState(76)

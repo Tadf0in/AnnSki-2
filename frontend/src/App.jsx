@@ -1,6 +1,6 @@
 import './App.css'
 import { createBrowserRouter, Outlet, RouterProvider, useRouteError} from 'react-router-dom'
-import PageError from './Errors/PageError'
+import PageError from './errors/PageError'
 
 import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home/Home'

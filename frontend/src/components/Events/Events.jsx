@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import useFetch from '../../hooks/useFetch'
 import Event from './Event'
-import Loading from '../Utils/Loading'
+import Loading from '../../utils/Loading'
 
 export default function Events() {
   const {loading, data} = useFetch('/api/events', {method: 'GET'})

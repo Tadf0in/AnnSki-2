@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from "react-router-dom"
 import useFetch from '../../../hooks/useFetch'
 import { Link } from 'react-router-dom'
-import Loading from '../../Utils/Loading'
+import Loading from '../../../utils/Loading'
 import NAForm from './NAForm'
 import Header from './Header'
 import AForm from './AForm'
@@ -13,7 +13,6 @@ export default function Register () {
     const [adherent, setAdherent] = useState(null)
 
     if (errors) {
-        console.log(errors)
         throw new Error("Cette sortie ne semble pas exister")
     } else 
     if (data && !data.can_register) {

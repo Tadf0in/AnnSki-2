@@ -1,5 +1,5 @@
 import React from 'react'
-import FormFloating from '../../Utils/Fields'
+import FormFloating from '../../../utils/Fields'
 
 export default function NAForm() {
   return <form className='register-form'>
