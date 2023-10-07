@@ -12,7 +12,6 @@ export default function Register () {
     const {loading, data} = useFetch('/api/events/'+event_id, {method: 'GET'})
     const [adherent, setAdherent] = useState(null)
 
-    console.log(adherent)
     return <>
         {loading && <Loading />}
 
@@ -26,7 +25,7 @@ export default function Register () {
                     <button className='btn btn-adherent btn-secondary' onClick={() => setAdherent(false)}>Non Adhérent ({data.prixNA}€)</button>
                 </div>
 
-                : <>{ adherent ? <AForm /> : <NAForm /> }</>
+                : adherent ? <AForm /> : <NAForm />
             }
         </div>
         }

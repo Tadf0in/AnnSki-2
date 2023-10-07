@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider} from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home/Home'
 import Events from './components/Events/Events'
@@ -7,19 +7,48 @@ import Shop from './components/Shop/Shop'
 import Profile from './components/Profile/Profile'
 import Register from './components/Events/Register/Register'
 
-function App() {
-  return (
-    <div className='App'>
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    children: [  
+      { 
+        path: '/',
+        element: <Home />
+      }, 
+      { 
+        path: '/events',
+        element: <Events />
+      }, 
+      { 
+        path: '/events/register/:event_id',
+        element: <Register />
+      }, 
+      { 
+        path: '/shop',
+        element: <Shop />
+      }, 
+      { 
+        path: '/profile',
+        element: <Profile />
+      }
+    ]
+  }
+])
+
+function Root() {
+  return <>
+    <header className='sticky-top'>
       <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} /> 
-        <Route path='/events' element={<Events />} />
-        <Route path='/events/register/:event_id' element={<Register />} />    
-        <Route path='/shop' element={<Shop />} />  
-        <Route path='/profile' element={<Profile />} />      
-      </Routes>
+    </header>
+    <div className='App'>
+      <Outlet />
     </div>
-  )
+  </>
+}
+
+function App() {
+  return <RouterProvider router={router} />
 }
 
 export default App
