@@ -21,7 +21,7 @@ export default function Navbar() {
                         <NavLink to="/" className='nav-link'>Home</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/events" className='nav-link'>Sorties</NavLink>
+                        <NavLink to="/sorties" className='nav-link'>Sorties</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink to="/shop" className='nav-link'>Boutique</NavLink>

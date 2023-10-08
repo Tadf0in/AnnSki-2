@@ -14,4 +14,7 @@ class Membre(models.Model):
     
     def __str__(self) -> str:
         return f"{self.user.first_name} {self.user.last_name} ({self.user.username})"
+    
+    class Meta:
+        ordering = ('user__last_name', 'user__first_name')
 

@@ -29,6 +29,7 @@ class Event(models.Model):
     class Meta:
         verbose_name = 'Sortie'
         verbose_name_plural = 'Sorties'
+        ordering = ('location',)
 
 
 class Inscription(models.Model):

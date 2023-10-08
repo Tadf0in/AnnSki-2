@@ -20,11 +20,11 @@ const router = createBrowserRouter([
         element: <Home />
       }, 
       { 
-        path: '/events',
+        path: '/sorties',
         element: <Events />
       }, 
       { 
-        path: '/events/register/:event_id',
+        path: '/sorties/inscription/:event_id',
         element: <Register />
       }, 
       { 

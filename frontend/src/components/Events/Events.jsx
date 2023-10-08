@@ -5,8 +5,6 @@ import Loading from '../../utils/Loading'
 
 export default function Events() {
   const {loading, data} = useFetch('/api/events', {method: 'GET'})
-
-  console.log(data)
  
   return <>
     {loading && <Loading />}
