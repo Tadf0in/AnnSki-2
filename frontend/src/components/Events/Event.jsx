@@ -43,7 +43,7 @@ export default function Event({ event }) {
           ? <Link to={"/events/register/" + event.id} className="btn btn-primary">S'inscrire</Link> 
           : <button disabled className='btn btn-secondary'><i className="fa-solid fa-lock"></i>&nbsp;&nbsp;S'inscrire</button>
           }
-          <p className='card-text text-body-secondary'>Reste {event.nb_max - event.inscrits.length}/{event.nb_max} places</p>
+          <p className='card-text text-body-secondary'>Reste {event.nb_max - event.nb_inscrits}/{event.nb_max} places</p>
         </span>
       </div>
     </div>

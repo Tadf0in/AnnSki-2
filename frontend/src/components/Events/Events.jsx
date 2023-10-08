@@ -5,11 +5,14 @@ import Loading from '../../utils/Loading'
 
 export default function Events() {
   const {loading, data} = useFetch('/api/events', {method: 'GET'})
+
+  console.log(data)
  
   return <>
     {loading && <Loading />}
 
-    {data && <div className='events d-flex flex-column align-items-center'>
+    {data ? 
+    <div className='events d-flex flex-column align-items-center'>
       <h1 className='section-title fs-1'>Sorties</h1>
       <div className='list-events d-flex flex-column align-items-center'>
         {
@@ -19,6 +22,6 @@ export default function Events() {
           }
       </div>
     </div>
-    }
+    : <span className='fst-italic text-body-secondary'>Aucune sortie</span>}
   </>
 }

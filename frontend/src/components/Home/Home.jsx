@@ -29,9 +29,10 @@ export default function Home() {
       <section id="next" className='d-flex flex-column align-items-center'>
         <h1 className='section-title fs-1'>Prochaine sortie</h1>
           {loading && <Loading />}
-          {data && <div className='next-event d-flex justify-content-center'> 
+          {data ? <div className='next-event d-flex justify-content-center'> 
             <Event event={data}/>
-          </div>}
+          </div>
+          : <span className='fst-italic text-body-secondary'>Aucune sortie</span>}
       </section>
     </>
   )
