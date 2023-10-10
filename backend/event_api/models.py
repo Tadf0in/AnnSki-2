@@ -11,7 +11,7 @@ class Event(models.Model):
     nb_max = models.PositiveSmallIntegerField(default=60, verbose_name='Places disponibles')
     can_register = models.BooleanField(default=False, verbose_name='Inscriptions ouvertes')
     background_img = models.URLField(max_length=500, default="https://fr.newsonthesnow.com/news/wp-content/uploads/sites/3/2021/05/FR-Top-10-des-stations-de-ski-ide%CC%81ales-pour-un-week-end-hero-shutterstock-2-optimized.jpg")
-    logo_img = models.URLField(max_length=500, default="https://scontent.flyn1-1.fna.fbcdn.net/v/t39.30808-1/309455246_553894126738316_1694927504537490417_n.jpg?stp=dst-jpg_p200x200&_nc_cat=108&ccb=1-7&_nc_sid=754033&_nc_ohc=Ink_21fjHIoAX-i0RB_&_nc_ht=scontent.flyn1-1.fna&oh=00_AfBI6uKyChkwxn8d3qsv-WLQpLOVHJoQ5w9g5oQdW7aA3Q&oe=65245296") 
+    logo_img = models.URLField(max_length=500, default="https://img.freepik.com/vecteurs-premium/creation-du-logo-station-ski_71835-128.jpg") 
 
     @property
     def nb_inscrits(self):

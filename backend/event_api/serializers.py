@@ -9,3 +9,14 @@ class EventSerialier(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = '__all__'
+
+    
+class InscriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Inscription
+        fields = '__all__'
+
+    def create(self, data):
+        new_inscription = Inscription(**data)
+        new_inscription.save()
+        return new_inscription
