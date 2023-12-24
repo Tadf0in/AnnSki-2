@@ -24,6 +24,9 @@ html {
 .nav-item {
     margin-left: 20px;
 }
+nav ul {
+    padding-top: 7.2px;
+}
 
 
 video {
