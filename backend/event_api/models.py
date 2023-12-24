@@ -4,7 +4,7 @@ from user_api.models import Membre
 
 class Event(models.Model):
     lieu = models.CharField(max_length=128, verbose_name='Station')
-    desc = models.CharField(max_length=255, verbose_name='Description')
+    desc = models.CharField(max_length=255, verbose_name='Description', blank=True)
     date = models.DateField(auto_now=False, auto_now_add=False)
     prixA = models.PositiveSmallIntegerField(default=28, verbose_name='Prix Adhérent')
     prixNA = models.PositiveSmallIntegerField(default=37, verbose_name='Prix Non Adhérent')
@@ -15,16 +15,16 @@ class Event(models.Model):
 
     @property
     def nb_inscrits(self):
-        return Inscription.objects.filter(sortie=self.id).count()
+        return Inscription.objects.filter(sortie=self).count()
 
-    def register_user(self, user) -> None:
-        self.inscrits.add(user)
+    # def register_user(self, user) -> None:
+    #     self.inscrits.add(user)
 
-    def unregister_user(self, user) -> None:
-        self.inscrits.remove(user)
+    # def unregister_user(self, user) -> None:
+    #     self.inscrits.remove(user)
 
     def __str__(self) -> str:
-        return self.lieu
+        return f"{self.lieu} - {self.date}"
 
     class Meta:
         verbose_name = 'Sortie'
@@ -40,4 +40,4 @@ class Inscription(models.Model):
     present_retour = models.BooleanField(default=False, verbose_name="Présent au retour")
 
     def __str__(self) -> str:
-        return str(self.membre)
+        return f"{self.sortie} - {self.membre}"

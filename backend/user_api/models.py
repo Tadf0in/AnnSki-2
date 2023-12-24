@@ -1,20 +1,32 @@
 from django.db import models
-from django.contrib.auth import get_user_model
-
-user_model = get_user_model()
 
 
 class Membre(models.Model):
-    user = models.OneToOneField(user_model, on_delete=models.CASCADE)
-    
-    tel = models.CharField(max_length=12, verbose_name="Numéro de téléphone")
-    is_adherent = models.BooleanField(verbose_name="Adhérent", default=False)
-    num_usca = models.CharField(max_length=20, null=True, blank=True, verbose_name="Numéro carte USCA")
+    nom = models.CharField(max_length=255, verbose_name="Nom")
+    prenom = models.CharField(max_length=255, verbose_name="Prénom")
+    mail = models.EmailField(max_length=255, verbose_name="Adresse mail", unique=True)
+    tel = models.CharField(max_length=255, verbose_name="Numéro de téléphone")
+    ecole = models.CharField(max_length=255, verbose_name="École", choices=(
+        ("Polytech", "Polytech"),
+        ("IUT", "IUT"),
+        ("IAE", "IAE"),
+        ("exte", "Exté"),
+    ))
 
-    
+    @property
+    def adherent(self) -> bool:
+        return Adhesion.objects.filter(membre=self).exists()
+
     def __str__(self) -> str:
-        return f"{self.user.first_name} {self.user.last_name} ({self.user.username})"
-    
-    class Meta:
-        ordering = ('user__last_name', 'user__first_name')
+        return f"{self.nom} {self.prenom}"
 
+    class Meta:
+        ordering = ('nom', 'prenom')
+
+
+class Adhesion(models.Model):
+    membre = models.OneToOneField(Membre, on_delete=models.CASCADE)
+    numero = models.CharField(max_length=50, verbose_name="Numéro carte USCA", blank="True")
+
+    def __str__(self) -> str:
+        return self.numero
