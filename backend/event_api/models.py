@@ -17,12 +17,6 @@ class Event(models.Model):
     def nb_inscrits(self):
         return Inscription.objects.filter(sortie=self).count()
 
-    # def register_user(self, user) -> None:
-    #     self.inscrits.add(user)
-
-    # def unregister_user(self, user) -> None:
-    #     self.inscrits.remove(user)
-
     def __str__(self) -> str:
         return f"{self.lieu} - {self.date}"
 

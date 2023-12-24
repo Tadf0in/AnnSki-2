@@ -2,6 +2,9 @@ html {
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+.App {
+    min-height: 100vh;
+}
 
 #error-page {
     height: 90vh;
@@ -56,6 +59,9 @@ video {
 .next-event {
     width: 100%;
 }
+.passees {
+    margin-top: 100px;
+}
 .list-events {
     width: 100%;
     gap: 20px;
@@ -84,6 +90,9 @@ video {
 .event-footer {
     gap: 20px;
 }
+.nb img {
+    filter: grayscale(1);
+}
 
 .btns-adherent {
     width: 100%;
@@ -106,4 +115,16 @@ video {
     padding: 20px;
     width: 100%;
     max-width: 800px;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    margin-top: 40px;
+    padding: 20px 40px;
+    min-height: 10vh;
+}
+.footer-link {
+    text-decoration: none;
+    color: white;
 }

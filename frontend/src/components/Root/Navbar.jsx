@@ -5,8 +5,8 @@ import logo from '../../assets/logo.png'
 export default function Navbar() {
   return (
     <nav className='navbar navbar-expand-md bg-body-tertiary' id='navbar'>
-        <div className="container-fluid barre">
-            <NavLink to="/" className="navbar-brand">
+        <div className="container-fluid barre d-flex align-items-center">
+            <NavLink to="" className="navbar-brand d-flex align-items-center">
                 <img src={logo} className='d-inline-block' alt="Logo" width="50" height="50"/>
                 &nbsp; Ann'ski
             </NavLink>
@@ -18,13 +18,13 @@ export default function Navbar() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mb-2">
                     <li className="nav-item">
-                        <NavLink to="/" className='nav-link'>Home</NavLink>
+                        <NavLink to="" className='nav-link'>Home</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/sorties" className='nav-link'>Sorties</NavLink>
+                        <NavLink to="sorties" className='nav-link'>Sorties</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/shop" className='nav-link'>Boutique</NavLink>
+                        <NavLink to="shop" className='nav-link'>Goodies</NavLink>
                     </li>
                 </ul>
             </div>

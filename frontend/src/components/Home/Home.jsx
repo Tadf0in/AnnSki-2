@@ -11,7 +11,6 @@ export default function Home() {
   }, [])
   const {loading, data} = useFetch('/api/events/0', {method: 'GET'})
 
-
   return (
     <>
       <div className='absolute home' style={{height: "calc(100vh - " + navbarHeight + "px)"}}>

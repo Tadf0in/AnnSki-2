@@ -2,7 +2,10 @@ import './App.css'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import PageError from './errors/PageError'
 
-import Navbar from './components/Navbar/Navbar'
+import Navbar from './components/Root/Navbar'
+import Root from './components/Root/Root'
+import Footer from './components/Root/Footer'
+
 import Home from './components/Home/Home'
 import Events from './components/Events/Events'
 import Shop from './components/Shop/Shop'
@@ -13,7 +16,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    errorElement: <><Navbar /><PageError /></>,
+    errorElement: <><Navbar /><PageError /><Footer/></>,
     children: [  
       { 
         path: '/',
@@ -37,18 +40,9 @@ const router = createBrowserRouter([
       }
     ]
   }
-])
-
-function Root() {
-  return <>
-    <header className='sticky-top'>
-      <Navbar />
-    </header>
-    <div className='App'>
-      <Outlet />
-    </div>
-  </>
-}
+], {
+  basename: "/"
+})
 
 function App() {
   return <RouterProvider router={router} />
