@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useParams } from "react-router-dom"
 import useFetch from '../../../hooks/useFetch'
-import { Link } from 'react-router-dom'
 import Loading from '../../../utils/Loading'
 import NAForm from './NAForm'
 import Header from './Header'
@@ -34,14 +33,6 @@ export default function Register () {
 
                 : adherent ? <AForm /> : <NAForm />
             }
-        </div>
-        }
-
-        { data && !data.can_register && 
-        <div className='error d-flex flex-column align-items-center'>
-            &nbsp;
-            <span className='alert alert-danger'>Vous ne pouvez pas vous inscrire à cette sortie actuellement</span>
-            <Link to='/'>Retour à l'accueil</Link>
         </div>
         }
     </>

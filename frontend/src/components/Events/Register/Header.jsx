@@ -5,7 +5,7 @@ export default function Header({ data }) {
         <div className='register-header d-flex justify-content-center'>
             <div className='register-header-infos d-flex justify-content-between align-items-end'>
                 <div className='event-left d-flex flex-column justify-content-end'>
-                    <h5 className="card-title fw-bold fs-1">{data.location}</h5>
+                    <h5 className="card-title fw-bold fs-1">{data.lieu}</h5>
                     <h5 className='card-title fs-3'>{data.date}</h5>
                 </div>
 

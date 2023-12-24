@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Event({ event }) {
@@ -16,7 +15,7 @@ export default function Event({ event }) {
       
       <div className='card-header d-flex justify-content-between align-items-end'>
         <div className='event-left d-flex flex-column justify-content-end'>
-          <h5 className="card-title fw-bold fs-1">{event.location}</h5>
+          <h5 className="card-title fw-bold fs-1">{event.lieu}</h5>
           <h5 className='card-title fs-3'>{formatDate(event.date)}</h5>
         </div>
 

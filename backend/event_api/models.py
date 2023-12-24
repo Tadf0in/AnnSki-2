@@ -3,12 +3,12 @@ from user_api.models import Membre
 
 
 class Event(models.Model):
-    location = models.CharField(max_length=128, verbose_name='Station')
+    lieu = models.CharField(max_length=128, verbose_name='Station')
     desc = models.CharField(max_length=255, verbose_name='Description')
     date = models.DateField(auto_now=False, auto_now_add=False)
-    prixA = models.PositiveSmallIntegerField(default=26, verbose_name='Prix Adhérent')
-    prixNA = models.PositiveSmallIntegerField(default=35, verbose_name='Prix Non Adhérent')
-    nb_max = models.PositiveSmallIntegerField(default=60, verbose_name='Places disponibles')
+    prixA = models.PositiveSmallIntegerField(default=28, verbose_name='Prix Adhérent')
+    prixNA = models.PositiveSmallIntegerField(default=37, verbose_name='Prix Non Adhérent')
+    nb_max = models.PositiveSmallIntegerField(default=63, verbose_name='Places disponibles')
     can_register = models.BooleanField(default=False, verbose_name='Inscriptions ouvertes')
     background_img = models.URLField(max_length=500, default="https://fr.newsonthesnow.com/news/wp-content/uploads/sites/3/2021/05/FR-Top-10-des-stations-de-ski-ide%CC%81ales-pour-un-week-end-hero-shutterstock-2-optimized.jpg")
     logo_img = models.URLField(max_length=500, default="https://img.freepik.com/vecteurs-premium/creation-du-logo-station-ski_71835-128.jpg") 
@@ -24,12 +24,12 @@ class Event(models.Model):
         self.inscrits.remove(user)
 
     def __str__(self) -> str:
-        return self.location
+        return self.lieu
 
     class Meta:
         verbose_name = 'Sortie'
         verbose_name_plural = 'Sorties'
-        ordering = ('location',)
+        ordering = ('lieu',)
 
 
 class Inscription(models.Model):

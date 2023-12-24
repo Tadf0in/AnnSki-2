@@ -1,5 +1,5 @@
 import './App.css'
-import { createBrowserRouter, Outlet, RouterProvider, useRouteError} from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import PageError from './errors/PageError'
 
 import Navbar from './components/Navbar/Navbar'

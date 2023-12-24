@@ -3,8 +3,8 @@ from .models import *
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ['location', 'date']
-    search_fields = ['location']
+    list_display = ['lieu', 'date']
+    search_fields = ['lieu']
 
 
 @admin.register(Inscription)
