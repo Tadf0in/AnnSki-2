@@ -5,6 +5,7 @@ from .serializers import *
 from .models import *
 from user_api.models import Membre
 
+
 class EventsView(APIView):
     permission_classes = (AllowAny,)
     authentication_classes = ()
@@ -14,6 +15,7 @@ class EventsView(APIView):
         serializer = EventSerialier(events, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+
 class EventView(APIView):
     permission_classes = (AllowAny,)
     authentication_classes = ()
@@ -25,7 +27,6 @@ class EventView(APIView):
             event = Event.objects.get(pk=event_id)
         serializer = EventSerialier(event)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
 
 
 class RegisterView(APIView):
