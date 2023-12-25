@@ -119,6 +119,9 @@ video {
     width: 100%;
     max-width: 800px;
 }
+.form-select {
+    height: 58px;
+}
 
 footer {
     background-color: #222;
