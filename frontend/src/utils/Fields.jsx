@@ -14,7 +14,7 @@ export default function FormFloating({ type, name, get, set, id, placeholder }) 
 
 
 export function FormSelect({ name, placeholder, get, set, options }) {
-  return <select className='form-select mb-3' name={name} defaultValue="" required
+  return <select className='form-select mb-3' name={name} required
   value={get[[name]]}
   onChange={e => set({...get, [name]: e.target.value})}>
     <option key={"select-"+name+"-default"} disabled value="">{placeholder}</option>

@@ -10,6 +10,7 @@ export default function Form() {
     mail: "",
     tel: "",
     ecole: "",
+    bus: "",
   })
 
   const submitForm = (e) => {
@@ -36,6 +37,16 @@ export default function Form() {
         ["IAE", "IAE"],
         ["exte", "Exté"],
       ]}/>
+
+      <FormSelect key="form-select-register-bus" name="bus" placeholder="Bus"
+      get={formData} set={setFormData} options={[
+        ["a/r", "Aller / Retour"],
+        ["aller", "Bus uniquement à l'aller"],
+        ["retour", "Bus uniquement au retour"],
+        ["aucun", "Je ne prends pas le bus"],
+      ]}
+      
+      />
 
       <button type='submit' className='btn btn-primary form-submit'>S'inscrire</button>
     </form>
