@@ -4,7 +4,7 @@ from django.db import models
 class Membre(models.Model):
     nom = models.CharField(max_length=255, verbose_name="Nom")
     prenom = models.CharField(max_length=255, verbose_name="Prénom")
-    mail = models.EmailField(max_length=255, verbose_name="Adresse mail")
+    mail = models.EmailField(max_length=255, verbose_name="Adresse mail", unique=True)
     tel = models.CharField(max_length=255, verbose_name="Numéro de téléphone")
     ecole = models.CharField(max_length=255, verbose_name="École", choices=(
         ("Polytech", "Polytech"),
