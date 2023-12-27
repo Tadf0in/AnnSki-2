@@ -89,6 +89,7 @@ video {
     object-fit: contain;
     width: 100px;
     height: 100px;
+    mix-blend-mode: multiply;
 }
 .event-footer {
     gap: 20px;
