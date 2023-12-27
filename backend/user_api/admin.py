@@ -4,8 +4,12 @@ from .models import *
 
 @admin.register(Membre)
 class MembreAdmin(admin.ModelAdmin):
+    list_display = ('nomprenom', 'adherent')
     search_fields = ('nom', 'prenom', 'mail', 'tel')
-    list_filter = ('ecole',)
+    list_filter = ('adherent','ecole')
+
+    def nomprenom(self, mbr):
+        return mbr.nom + ' ' + mbr.prenom
 
 ## TODO -> à voir plus tard
 # @admin.register(Adhesion)

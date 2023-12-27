@@ -36,14 +36,28 @@ class RegisterView(APIView):
         data = request.data
     
         data['sortie'] = event_id
+        sortie = Event.objects.get(pk=event_id)
 
+        # Si inscription à la sortie pas ouvertes ou pleines
+        if not sortie.can_register or sortie.nb_inscrits >= sortie.nb_max:
+            return Response(status=status.HTTP_403_FORBIDDEN)
+
+        # Adhérent (Membre)
+        match data['adherent']:
+            case "true":
+                data['adherent'] = True
+            case "false":
+                data['adherent'] = False
+            case _:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
         # Membre
         data['membre'], isAlreadyMembre = Membre.objects.get_or_create(
             mail=data['mail'],
             nom=data['nom'],
             prenom=data['prenom'],
             tel=data['tel'],
-            ecole=data['ecole']
+            ecole=data['ecole'],
+            adherent=data['adherent']
         )
         del data['adherent'], data['nom'], data['prenom'], data['mail'], data['tel'], data['ecole']
         data['membre'] = data['membre'].pk
@@ -70,17 +84,13 @@ class RegisterView(APIView):
 
         serializer = InscriptionSerializer(data=data)
         if serializer.is_valid(raise_exception=True): 
-            data['sortie'] = Event.objects.get(pk=data['sortie'])
+            data['sortie'] = sortie
             data['membre'] = Membre.objects.get(pk=data['membre'])
 
             # Si déjà inscrit
             if Inscription.objects.filter(membre=data['membre'], sortie=data['sortie']).exists():
                 return Response(status=status.HTTP_208_ALREADY_REPORTED)
-            
-            # Si inscription à la sortie pas ouvertes
-            if not data['sortie'].can_register:
-                return Response(status=status.HTTP_403_FORBIDDEN)
-            
+
             inscription = serializer.create(data)
             if inscription is not None:
                 return Response(serializer.data, status=status.HTTP_201_CREATED)

@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import FormFloating from '../../../utils/Fields'
 import { FormSelect } from '../../../utils/Fields'
+import useFetch from '../../../hooks/useFetch'
+import { useParams } from 'react-router-dom'
 
 export default function Form() {
+  const {event_id} = useParams()
   const [formData, setFormData] = useState({
     adherent: "",
     nom: "",
@@ -16,6 +19,15 @@ export default function Form() {
   const submitForm = (e) => {
     e.preventDefault()
     console.log(formData)
+    fetch('http://localhost:8000/api/events/register/'+event_id, {
+      method:'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json; charset=UTF-8" 
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(res => console.log(res))
   }
 
   return <form className='register-form' onSubmit={e => submitForm(e)}>

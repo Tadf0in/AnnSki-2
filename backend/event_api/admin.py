@@ -3,7 +3,7 @@ from .models import *
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('lieu', 'date')
+    list_display = ('lieu', 'date', 'nb_inscrits')
     search_fields = ('lieu',)
 
 
