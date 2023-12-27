@@ -38,10 +38,14 @@ class RegisterView(APIView):
         data['sortie'] = event_id
 
         # Membre
-        data['membre'], isAlreadyMembre = Membre.objects.get_or_create(mail=data['mail'])
-        if not isAlreadyMembre:
-            # TODO -> Creer membre 
-            del  data['adherent'], data['nom'], data['prenom'], data['mail'], data['tel'], data['ecole']
+        data['membre'], isAlreadyMembre = Membre.objects.get_or_create(
+            mail=data['mail'],
+            nom=data['nom'],
+            prenom=data['prenom'],
+            tel=data['tel'],
+            ecole=data['ecole']
+        )
+        del data['adherent'], data['nom'], data['prenom'], data['mail'], data['tel'], data['ecole']
         data['membre'] = data['membre'].pk
         
         data['paye'] = False
