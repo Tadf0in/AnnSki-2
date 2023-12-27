@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import FormFloating from '../../../utils/Fields'
 import { FormSelect } from '../../../utils/Fields'
-import useFetch from '../../../hooks/useFetch'
+import apiPostForm from '../../../utils/apiPostForm'
 import { useParams } from 'react-router-dom'
 
 export default function Form() {
@@ -16,21 +16,7 @@ export default function Form() {
     bus: "",
   })
 
-  const submitForm = (e) => {
-    e.preventDefault()
-    console.log(formData)
-    fetch('http://localhost:8000/api/events/register/'+event_id, {
-      method:'POST',
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json; charset=UTF-8" 
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(res => console.log(res))
-  }
-
-  return <form className='register-form' onSubmit={e => submitForm(e)}>
+  return <form className='register-form' onSubmit={e => apiPostForm(e, '/api/events/register/'+event_id, formData)}>
       <FormSelect key="form-select-register-adherent" name="adherent" placeholder="Adhérent ?" 
       get={formData} set={setFormData} options={[
         ["false", "Non adhérent"], 
