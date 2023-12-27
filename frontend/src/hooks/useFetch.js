@@ -6,7 +6,7 @@ export default function useFetch (url, options) {
     const [errors, setErrors] = useState(null)
 
     useEffect(() => {
-        fetch('http://localhost:8000/' + url, {
+        fetch('http://localhost:8000' + url, {
             ...options,
             headers: {
                 ...options.headers,
@@ -16,7 +16,9 @@ export default function useFetch (url, options) {
         }).then(res => res.json()).then(data => {
             setData(data)
         })
-        .catch(err => setErrors(err))
+        .catch(err => {
+            setErrors(err)
+        })
         .finally(() => setLoading(false))
     }, [])
 

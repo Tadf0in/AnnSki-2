@@ -2,6 +2,20 @@ html {
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+.App {
+    min-height: 100vh;
+}
+
+#error-page {
+    height: 90vh;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+}
+#error-page img {
+    width: 100%;
+    max-width: 600px;
+}
 
 .navbar-brand {
     margin-left: 20px;
@@ -9,6 +23,9 @@ html {
 }
 .nav-item {
     margin-left: 20px;
+}
+nav ul {
+    padding-top: 7.2px;
 }
 
 
@@ -45,6 +62,9 @@ video {
 .next-event {
     width: 100%;
 }
+.passees {
+    margin-top: 100px;
+}
 .list-events {
     width: 100%;
     gap: 20px;
@@ -62,14 +82,55 @@ video {
     background: linear-gradient(transparent, #222);
     color: white;
 }
-.event .event-left {
+.event-left {
     height: 100px;
 }
-.event .logo {
+.event-right .logo {
     object-fit: contain;
     width: 100px;
     height: 100px;
 }
-.event .event-footer {
+.event-footer {
     gap: 20px;
+}
+.nb img {
+    filter: grayscale(1);
+}
+
+.btns-adherent {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+.register-header {
+    position: absolute;
+    background: linear-gradient(transparent, #222);
+    color: white;
+    width: 100%;
+    height: 200px;
+}
+.register-header-infos {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+.register-form {
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+.form-select {
+    height: 58px;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    margin-top: 40px;
+    padding: 20px 40px;
+    min-height: 10vh;
+}
+.footer-link {
+    text-decoration: none;
+    color: white;
 }

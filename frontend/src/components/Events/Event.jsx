@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Event({ event }) {
   const formatDate = (date) => {
@@ -15,7 +15,7 @@ export default function Event({ event }) {
       
       <div className='card-header d-flex justify-content-between align-items-end'>
         <div className='event-left d-flex flex-column justify-content-end'>
-          <h5 className="card-title fw-bold fs-1">{event.location}</h5>
+          <h5 className="card-title fw-bold fs-1">{event.lieu}</h5>
           <h5 className='card-title fs-3'>{formatDate(event.date)}</h5>
         </div>
 
@@ -39,10 +39,10 @@ export default function Event({ event }) {
 
         <span className='event-footer d-flex align-items-center'>
           { event.can_register 
-          ? <button className="btn btn-primary">S'inscrire</button> 
-          : <button disabled className='btn btn-secondary'><i class="fa-solid fa-lock"></i>&nbsp;&nbsp;S'inscrire</button>
+          ? <Link to={"inscription/" + event.id} className="btn btn-primary">S'inscrire</Link> 
+          : <button disabled className='btn btn-secondary'><i className="fa-solid fa-lock"></i>&nbsp;&nbsp;S'inscrire</button>
           }
-          <p className='card-text text-body-secondary'>Reste {event.nb_max - event.inscrits.length}/{event.nb_max} places</p>
+          <p className='card-text text-body-secondary'>Reste {event.nb_max - event.nb_inscrits}/{event.nb_max} places</p>
         </span>
       </div>
     </div>
