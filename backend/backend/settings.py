@@ -90,15 +90,15 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL')), 
-    # {
-        # 'ENGINE': config('ENGINE'),
-        # 'NAME': config('NAME'), 
-        # 'USER': config('USER'), 
-        # 'PASSWORD': config('PASSWORD'), 
-        # 'HOST': config('HOST'), 
-        # 'PORT': config('PORT'), 
-    #}
+    'default': #dj_database_url.config(default=config('DATABASE_URL')), 
+    {
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'), 
+        'USER': config('DB_USER'), 
+        'PASSWORD': config('DB_PASSWORD'), 
+        'HOST': config('DB_HOST'), 
+        'PORT': config('DB_PORT'), 
+    }
 }
 
 # Password validation
