@@ -88,18 +88,21 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
-DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL')), 
-    # {
-    #     'ENGINE': config('DB_ENGINE'),
-    #     'NAME': config('DB_NAME'), 
-    #     'USER': config('DB_USER'), 
-    #     'PASSWORD': config('DB_PASSWORD'), 
-    #     'HOST': config('DB_HOST'), 
-    #     'PORT': config('DB_PORT'), 
-    # }
-}
+if DEBUG :
+    DATABASES = {
+        'default': {
+            'ENGINE': config('DB_ENGINE'),
+            'NAME': config('DB_NAME'), 
+            'USER': config('DB_USER'), 
+            'PASSWORD': config('DB_PASSWORD'), 
+            'HOST': config('DB_HOST'), 
+            'PORT': config('DB_PORT'), 
+        }
+    }
+else:
+    DATABASES = { 
+        'default': dj_database_url.config(default=config('DATABASE_URL'))
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
