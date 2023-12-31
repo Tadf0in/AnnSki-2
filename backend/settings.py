@@ -26,15 +26,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [config('DJANGO_ALLOWED_HOSTS')]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost',
-    'http://localhost:5173'
+    config('CORS_ALLOWED_ORIGIN')
 ]
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = False
 
 
 # Application definition
