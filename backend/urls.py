@@ -21,6 +21,8 @@ admin.site.site_header = "Ann'Ski administration"
 admin.site.site_title = "Ann'Ski"
 admin.site.index_title = "Administration"
 
+admin.site.site_url = 'https://annski.fr'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/events/', include('event_api.urls'))

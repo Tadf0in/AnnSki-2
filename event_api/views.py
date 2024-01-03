@@ -20,10 +20,7 @@ class EventView(APIView):
     authentication_classes = ()
 
     def get(self, request, event_id=0):
-        if event_id == 0:
-            event = Event.objects.order_by('-date')[0] # next event
-        else:
-            event = Event.objects.get(pk=event_id)
+        event = Event.objects.get(pk=event_id)
         serializer = EventSerialier(event)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
