@@ -26,12 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [config('DJANGO_ALLOWED_HOSTS')]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost',
     config('CORS_ALLOWED_ORIGIN')
 ]
 CORS_ALLOW_CREDENTIALS = True
@@ -147,3 +146,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
