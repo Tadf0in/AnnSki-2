@@ -25,5 +25,6 @@ admin.site.site_url = 'https://annski.fr'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/events/', include('event_api.urls'))
+    path('api/events/', include('event_api.urls')),
+    path('api/shop/', include('shop_api.urls')),
 ]
