@@ -2,6 +2,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.views import Response, status, APIView
 from .serializers import *
 from .models import *
+from user_api.models import Membre
 
 
 class GoodiesView(APIView):
@@ -34,9 +35,26 @@ class CommandeView(APIView):
         data['goodie'] = data['goodie_id']
         del data['goodie_id']
 
-        ## TODO -> Get/Create Membre
-        # data['membre'] = None
-        # del data['nom'], data['prenom'], data['mail'], data['tel'], data['ecole']
+        # Adhérent (Membre)
+        match data['adherent']:
+            case "true":
+                data['adherent'] = True
+            case "false":
+                data['adherent'] = False
+            case _:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
+
+        # Membre
+        data['membre'], isAlreadyMembre = Membre.objects.get_or_create(
+            mail=data['mail'].lower(),
+            nom=data['nom'].upper(),
+            prenom=data['prenom'].capitalize(),
+            tel=data['tel'],
+            ecole=data['ecole'],
+            adherent=data['adherent']
+        )
+        del data['adherent'], data['nom'], data['prenom'], data['mail'], data['tel'], data['ecole']
+        data['membre'] = data['membre'].pk
 
         data['paye'] = False
 

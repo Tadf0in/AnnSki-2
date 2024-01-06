@@ -40,26 +40,19 @@ class RegisterView(APIView):
             return Response(status=status.HTTP_403_FORBIDDEN)
 
         # Adhérent (Membre)
-        # match data['adherent']:
-        #     case "true":
-        #         data['adherent'] = True
-        #     case "false":
-        #         data['adherent'] = False
-        #     case _:
-        #         return Response(status=status.HTTP_400_BAD_REQUEST)
-        # Old py version :
-        if data['adherent'] == "true":
-            data['adherent'] = True
-        elif data['adherent'] == "false":
-            data['adherent'] = False
-        else:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+        match data['adherent']:
+            case "true":
+                data['adherent'] = True
+            case "false":
+                data['adherent'] = False
+            case _:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
 
         # Membre
         data['membre'], isAlreadyMembre = Membre.objects.get_or_create(
-            mail=data['mail'],
-            nom=data['nom'],
-            prenom=data['prenom'],
+            mail=data['mail'].lower(),
+            nom=data['nom'].upper(),
+            prenom=data['prenom'].capitalize(),
             tel=data['tel'],
             ecole=data['ecole'],
             adherent=data['adherent']
@@ -70,36 +63,21 @@ class RegisterView(APIView):
         data['paye'] = False
         
         # Bus
-        # match data['bus']:
-        #     case "a/r":
-        #         data['present_aller'] = True
-        #         data['present_retour'] = True
-        #     case "aller":
-        #         data['present_aller'] = True
-        #         data['present_retour'] = False
-        #     case "retour":
-        #         data['present_aller'] = False
-        #         data['present_retour'] = True
-        #     case "aucun":
-        #         data['present_aller'] = False
-        #         data['present_retour'] = False
-        #     case _:
-        #         return Response(status=status.HTTP_400_BAD_REQUEST)
-        # Old py version :
-        if data['bus'] == "a/r":
-            data['present_aller'] = True
-            data['present_retour'] = True
-        elif data['bus'] == "aller":
-            data['present_aller'] = True
-            data['present_retour'] = False  
-        elif data['bus'] == "retour":
-            data['present_aller'] = False
-            data['present_retour'] = True
-        elif data['bus'] == "aucun":
-            data['present_aller'] = False
-            data['present_retour'] = False
-        else:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+        match data['bus']:
+            case "a/r":
+                data['present_aller'] = True
+                data['present_retour'] = True
+            case "aller":
+                data['present_aller'] = True
+                data['present_retour'] = False
+            case "retour":
+                data['present_aller'] = False
+                data['present_retour'] = True
+            case "aucun":
+                data['present_aller'] = False
+                data['present_retour'] = False
+            case _:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
         del data['bus']
 
         serializer = InscriptionSerializer(data=data)
